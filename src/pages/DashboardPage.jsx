@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Header from '../components/common/Header';
 import BottomNav from '../components/common/BottomNav';
 import FinancialSnapshot from '../components/dashboard/FinancialSnapshot';
-import AIInsights from '../components/dashboard/AIInsights';
+import AIInsights from '../components/dashboard/AllInsights';
 import SpendingChart from '../components/dashboard/SpendingChart';
 import RecentTransactions from '../components/dashboard/RecentTransactions';
 import UpcomingBills from '../components/dashboard/UpcomingBills';
