@@ -13,7 +13,7 @@ import BudgetPage from './pages/BudgetPage';
 import GoalsPage from './pages/GoalsPage';
 import BillsPage from './pages/BillsPage';
 import ChatPage from './pages/ChatPage';
-
+ 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isOnboarded, setIsOnboarded] = useState(false);
