@@ -113,7 +113,7 @@ const DataImportPage = ({ setIsOnboarded }) => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black py-8 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent mb-6">
+          <h1 className="text-5xl font-bold bg-white bg-clip-text text-transparent mb-6">
             How would you like to add your financial data?
           </h1>
           <p className="text-xl text-green-200/70">
