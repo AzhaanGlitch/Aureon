@@ -140,7 +140,7 @@ const LandingPage = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/bg-main.jpg")',
+            backgroundImage: 'url("/bg-image.jpg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -150,7 +150,7 @@ const LandingPage = () => {
         {/* Navbar with Glass Effect */}
         <nav className="relative z-10 w-full px-8 py-6 animate-fade-in-down">
           <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 bg-black/30 backdrop-blur-md rounded-xl border border-white/10">
-            <div className="text-white text-xl font-bold">
+            <div className="text-white text-xl font-bold ">
               AUREON
             </div>
             <div className="flex items-center space-x-6">
@@ -169,7 +169,7 @@ const LandingPage = () => {
           <div className="relative flex flex-col items-center">
             {/* AUREON Text */}
             <h1 
-              className="text-[12rem] md:text-[14rem] lg:text-[18rem] tracking-wider leading-none select-none uppercase animate-scale-in delay-200"
+              className="text-[12rem] md:text-[14rem] lg:text-[16rem] tracking-wider leading-none select-none uppercase animate-scale-in delay-200 mb-20"
               style={{
                 color: '#ffffff',
                 textShadow: '0 0 40px rgb(0, 0, 0), 0 0 80px rgba(255, 255, 255, 0.15)',
