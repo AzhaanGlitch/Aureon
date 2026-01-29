@@ -43,7 +43,7 @@ const SignUpPage = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate('/')}
-          className="flex items-center space-x-2 text-green-300 hover:text-green-200 mb-6 transition-colors"
+          className="flex items-center space-x-2 text-white hover:text-green-200 mb-6 transition-colors"
         >
           <ArrowLeft size={20} />
           <span>Back</span>
@@ -56,17 +56,17 @@ const SignUpPage = () => {
             <div className="w-20 h-20 bg-gradient-to-br from-green-500/30 to-emerald-600/30 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/40">
               <Lock size={32} className="text-green-400" />
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent mb-3">
+            <h1 className="text-4xl font-bold bg-white bg-clip-text text-transparent mb-3">
               Create Your Account
             </h1>
-            <p className="text-green-200/60">Start your journey to financial freedom</p>
+            <p className="text-green-200/90">Start your journey to financial freedom</p>
           </div>
 
-          {/* Form */}
+          {/* Form */}  
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Full Name */}
             <div>
-              <label className="block text-sm font-medium text-green-300 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 Full Name
               </label>
               <input
@@ -74,15 +74,15 @@ const SignUpPage = () => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="Emma Johnson"
+                placeholder="Aureon Dev"
                 required
-                className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-green-300/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-white/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-green-300 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 Email Address
               </label>
               <input
@@ -90,15 +90,15 @@ const SignUpPage = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="emma@email.com"
+                placeholder="aureondev@email.com"
                 required
-                className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-green-300/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-white/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
               />
             </div>
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-green-300 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 Password
               </label>
               <div className="relative">
@@ -109,12 +109,12 @@ const SignUpPage = () => {
                   onChange={handleChange}
                   placeholder="••••••••"
                   required
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-green-300/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all pr-12"
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-white/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all pr-12"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-green-400 hover:text-green-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-green-400 hover:text-white"
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
@@ -139,7 +139,7 @@ const SignUpPage = () => {
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-sm font-medium text-green-300 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 Confirm Password
               </label>
               <div className="relative">
@@ -150,12 +150,12 @@ const SignUpPage = () => {
                   onChange={handleChange}
                   placeholder="••••••••"
                   required
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-green-300/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all pr-12"
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-white/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all pr-12"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-green-400 hover:text-green-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-green-400 hover:text-white"
                 >
                   {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
@@ -167,7 +167,7 @@ const SignUpPage = () => {
 
             {/* Security Question */}
             <div>
-              <label className="block text-sm font-medium text-green-300 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 Security Question
               </label>
               <select
@@ -188,7 +188,7 @@ const SignUpPage = () => {
             {/* Security Answer */}
             {formData.securityQuestion && (
               <div>
-                <label className="block text-sm font-medium text-green-300 mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Your Answer
                 </label>
                 <input
@@ -198,7 +198,7 @@ const SignUpPage = () => {
                   onChange={handleChange}
                   placeholder="Enter your answer"
                   required
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-green-300/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-green-500/30 text-white placeholder-white/40 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
                 />
               </div>
             )}
@@ -215,11 +215,11 @@ const SignUpPage = () => {
               />
               <label className="text-sm text-green-200/80">
                 I agree to the{' '}
-                <button type="button" className="text-green-400 hover:text-green-300 underline">
+                <button type="button" className="text-green-400 hover:text-white underline">
                   Terms & Conditions
                 </button>{' '}
                 and{' '}
-                <button type="button" className="text-green-400 hover:text-green-300 underline">
+                <button type="button" className="text-green-400 hover:text-white underline">
                   Privacy Policy
                 </button>
                 <div className="flex items-center space-x-2 mt-2 text-green-400">
@@ -244,7 +244,7 @@ const SignUpPage = () => {
             Already have an account?{' '}
             <button
               onClick={() => navigate('/login')}
-              className="text-green-400 hover:text-green-300 font-medium transition-colors"
+              className="text-green-400 hover:text-white font-medium transition-colors"
             >
               Sign In
             </button>
