@@ -44,9 +44,9 @@ const LandingPage = () => {
         {/* Main Content */}
         <div className="flex-1 relative z-10 flex items-center justify-center px-4">
           <div className="relative flex flex-col items-center">
-            {/* AUREON Text with Bebas Neue Font */}
+            {/* AUREON Text */}
             <h1 
-              className="text-[10rem] md:text-[12rem] lg:text-[14rem] tracking-wider leading-none select-none uppercase"
+              className="text-[12rem] md:text-[14rem] lg:text-[18rem] tracking-wider leading-none select-none uppercase"
               style={{
                 color: '#ffffff',
                 textShadow: '0 0 40px rgb(0, 0, 0)',
@@ -62,7 +62,7 @@ const LandingPage = () => {
             {/* Get Started Button */}
             <button
               onClick={() => navigate('/onboarding/signup')}
-              className="mt-16 px-16 py-5 bg-gray-900/80 backdrop-blur-sm text-white rounded-full font-bold text-xl hover:bg-gray-800 transition-all shadow-2xl hover:scale-105 transform duration-200 relative z-30 border border-white/20"
+              className="mt-16 px-16 py-5 bg-emerald-0 backdrop-blur-sm text-white rounded-full font-bold text-xl hover:bg-black/20 transition-all shadow-2xl hover:scale-105 transform duration-200 relative z-30 border border-white/20"
             >
               Get Started
             </button>
