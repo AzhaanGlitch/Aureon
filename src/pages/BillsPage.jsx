@@ -11,64 +11,68 @@ const BillsPage = () => {
   const potentialSavings = unusedSubscriptions.reduce((sum, sub) => sum + sub.potentialSaving, 0);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black">
       <Header user={DUMMY_USER} />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">Bills & Subscriptions</h1>
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent mb-8">
+          Bills & Subscriptions
+        </h1>
 
         {/* Summary Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600">Total Due (Next 30 Days)</p>
-              <Calendar size={20} className="text-blue-600" />
+          <div className="bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-6 border border-green-500/20">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm text-green-300/70">Total Due (Next 30 Days)</p>
+              <Calendar size={24} className="text-green-400" />
             </div>
-            <p className="text-3xl font-bold text-gray-800">${totalDue.toFixed(2)}</p>
+            <p className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
+              ${totalDue.toFixed(2)}
+            </p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600">Active Subscriptions</p>
-              <CheckCircle size={20} className="text-green-600" />
+          <div className="bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-6 border border-green-500/20">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm text-green-300/70">Active Subscriptions</p>
+              <CheckCircle size={24} className="text-emerald-400" />
             </div>
-            <p className="text-3xl font-bold text-gray-800">{DUMMY_SUBSCRIPTIONS.length}</p>
+            <p className="text-4xl font-bold text-white">{DUMMY_SUBSCRIPTIONS.length}</p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600">Potential Savings</p>
-              <AlertCircle size={20} className="text-orange-600" />
+          <div className="bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-6 border border-orange-500/20">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm text-orange-300/70">Potential Savings</p>
+              <AlertCircle size={24} className="text-orange-400" />
             </div>
-            <p className="text-3xl font-bold text-green-600">${potentialSavings}/year</p>
+            <p className="text-4xl font-bold text-orange-400">${potentialSavings}/year</p>
           </div>
         </div>
 
         {/* Upcoming Bills */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-800 mb-6">Upcoming Bills</h2>
+        <div className="bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-6 mb-8 border border-green-500/20">
+          <h2 className="text-2xl font-semibold text-green-300 mb-6">Upcoming Bills</h2>
           
           <div className="space-y-3">
             {DUMMY_BILLS.map((bill) => (
-              <div key={bill.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 transition">
+              <div key={bill.id} className="flex items-center justify-between p-5 bg-gray-900/50 border border-green-500/10 rounded-xl hover:border-green-500/30 transition-all duration-300">
                 <div className="flex items-center space-x-4 flex-1">
-                  <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-full flex items-center justify-center border border-green-500/30">
+                    <span className="text-3xl">
                       {bill.category === 'Subscriptions' ? '🎬' :
                        bill.category === 'Utilities' ? '💡' :
                        bill.category === 'Housing' ? '🏠' : '📄'}
                     </span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-800">{bill.name}</h3>
-                    <div className="flex items-center space-x-3 text-sm text-gray-600">
+                    <h3 className="font-semibold text-white text-lg">{bill.name}</h3>
+                    <div className="flex items-center space-x-3 text-sm text-green-300/60">
                       <span>Due: {bill.dueDate}</span>
                       <span>•</span>
                       <span>{bill.daysUntil} days</span>
                       {bill.autoPay && (
                         <>
                           <span>•</span>
-                          <span className="text-green-600 flex items-center space-x-1">
+                          <span className="text-emerald-400 flex items-center space-x-1">
                             <CheckCircle size={14} />
                             <span>Auto-pay</span>
                           </span>
@@ -77,16 +81,16 @@ const BillsPage = () => {
                       {bill.predicted && (
                         <>
                           <span>•</span>
-                          <span className="text-blue-600">Predicted</span>
+                          <span className="text-blue-400">Predicted</span>
                         </>
                       )}
                     </div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-lg font-bold text-gray-800">${bill.amount.toFixed(2)}</p>
+                  <p className="text-xl font-bold text-white">${bill.amount.toFixed(2)}</p>
                   {!bill.autoPay && (
-                    <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                    <button className="text-sm text-green-400 hover:text-green-300 font-medium transition-colors">
                       Pay Now
                     </button>
                   )}
@@ -97,17 +101,17 @@ const BillsPage = () => {
         </div>
 
         {/* Subscription Analyzer */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">AI Subscription Analyzer</h2>
-          <p className="text-gray-600 mb-6">I found opportunities to save money!</p>
+        <div className="bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-6 mb-8 border border-green-500/20">
+          <h2 className="text-2xl font-semibold text-green-300 mb-4">AI Subscription Analyzer</h2>
+          <p className="text-green-200/60 mb-6">I found opportunities to save money!</p>
 
           {unusedSubscriptions.length > 0 && (
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+            <div className="bg-red-950/30 border border-red-500/30 rounded-xl p-5 mb-6 backdrop-blur-sm">
               <div className="flex items-start space-x-3">
-                <XCircle size={24} className="text-red-600 flex-shrink-0" />
+                <XCircle size={28} className="text-red-400 flex-shrink-0" />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-red-800 mb-2">Unused Subscriptions Detected</h3>
-                  <p className="text-sm text-red-700 mb-4">
+                  <h3 className="font-semibold text-red-300 mb-2 text-lg">Unused Subscriptions Detected</h3>
+                  <p className="text-sm text-red-200/80">
                     Cancel these to save ${potentialSavings}/year
                   </p>
                 </div>
@@ -122,50 +126,50 @@ const BillsPage = () => {
               return (
                 <div
                   key={subscription.id}
-                  className={`border-2 rounded-lg p-4 ${
-                    isUnused ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                  className={`border-2 rounded-xl p-5 backdrop-blur-sm transition-all duration-300 ${
+                    isUnused ? 'border-red-500/40 bg-red-950/20' : 'border-green-500/20 bg-gray-900/30'
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-800">{subscription.name}</h3>
-                      <div className="mt-2 space-y-1 text-sm">
-                        <p className="text-gray-600">Amount: ${subscription.amount}/month</p>
-                        <p className="text-gray-600">Renewal: {subscription.renewalDate}</p>
-                        <p className="text-gray-600">Usage: {subscription.usage}</p>
+                      <h3 className="font-semibold text-white text-lg mb-3">{subscription.name}</h3>
+                      <div className="mt-2 space-y-2 text-sm">
+                        <p className="text-green-200/70">Amount: ${subscription.amount}/month</p>
+                        <p className="text-green-200/70">Renewal: {subscription.renewalDate}</p>
+                        <p className="text-green-200/70">Usage: {subscription.usage}</p>
                         {subscription.lastUsed && (
-                          <p className="text-red-600 font-medium">Last used: {subscription.lastUsed}</p>
+                          <p className="text-red-400 font-medium">Last used: {subscription.lastUsed}</p>
                         )}
                         {subscription.warning && (
-                          <p className="text-orange-600 font-medium">{subscription.warning}</p>
+                          <p className="text-orange-400 font-medium">{subscription.warning}</p>
                         )}
                       </div>
                       {isUnused && (
-                        <div className="mt-3">
-                          <p className="text-sm font-semibold text-red-700">
+                        <div className="mt-4">
+                          <p className="text-sm font-semibold text-red-300 mb-3">
                             Potential saving: ${subscription.potentialSaving}/year
                           </p>
-                          <button className="mt-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm font-medium">
+                          <button className="px-6 py-2 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition-all duration-300 text-sm font-medium border border-red-400/30">
                             Cancel Subscription
                           </button>
                         </div>
                       )}
                     </div>
-                    <div className="flex flex-col items-end space-y-2">
+                    <div className="flex flex-col items-end space-y-3 ml-4">
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
                           <span
                             key={i}
-                            className={`text-lg ${
-                              i < subscription.valueScore ? 'text-yellow-400' : 'text-gray-300'
+                            className={`text-xl ${
+                              i < subscription.valueScore ? 'text-yellow-400' : 'text-gray-600'
                             }`}
                           >
                             ⭐
                           </span>
                         ))}
                       </div>
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        isUnused ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
+                      <span className={`text-xs px-3 py-1.5 rounded-full font-medium ${
+                        isUnused ? 'bg-red-500/20 text-red-300 border border-red-500/30' : 'bg-green-500/20 text-green-300 border border-green-500/30'
                       }`}>
                         {subscription.status === 'active' ? 'Active' : 'Unused'}
                       </span>
