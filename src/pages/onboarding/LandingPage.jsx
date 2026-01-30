@@ -150,7 +150,7 @@ const LandingPage = () => {
         {/* Navbar with Glass Effect */}
         <nav className="relative z-10 w-full px-8 py-6 animate-fade-in-down">
           <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 bg-black/30 backdrop-blur-md rounded-xl border border-white/10">
-            <div className="text-white text-xl font-bold ">
+            <div className="text-white text-xl font-bold">
               AUREON
             </div>
             <div className="flex items-center space-x-6">
