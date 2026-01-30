@@ -29,17 +29,17 @@ const ActiveGoals = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'ahead':
-        return 'text-green-600 bg-green-50';
+        return 'text-green-600 bg-green-50 border-green-200';
       case 'behind':
-        return 'text-red-600 bg-red-50';
+        return 'text-red-600 bg-red-50 border-red-200';
       default:
-        return 'text-blue-600 bg-blue-50';
+        return 'text-blue-600 bg-blue-50 border-blue-200';
     }
   };
 
   return (
     <div className="mb-8">
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-800">Active Goals</h2>
           <button className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
@@ -53,7 +53,7 @@ const ActiveGoals = () => {
             return (
               <div
                 key={goal.id}
-                className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-md transition cursor-pointer"
+                className="border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-md transition cursor-pointer bg-white"
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-semibold text-gray-800 text-sm">{goal.name}</h3>
@@ -90,7 +90,7 @@ const ActiveGoals = () => {
                     <span className="text-gray-600">Monthly</span>
                     <span className="font-medium text-gray-800">${goal.currentPace}/mo</span>
                   </div>
-                  <div className={`flex items-center justify-between px-2 py-1 rounded ${getStatusColor(goal.status)}`}>
+                  <div className={`flex items-center justify-between px-2 py-1 rounded border ${getStatusColor(goal.status)}`}>
                     <div className="flex items-center space-x-1">
                       {getStatusIcon(goal.status)}
                       <span className="font-medium text-xs">{getStatusText(goal)}</span>
@@ -102,7 +102,7 @@ const ActiveGoals = () => {
           })}
         </div>
 
-        <button className="w-full mt-4 py-3 text-sm text-blue-600 hover:text-blue-700 font-medium border-2 border-dashed border-blue-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition">
+        <button className="w-full mt-4 py-3 text-sm text-blue-600 hover:text-blue-700 font-medium border-2 border-dashed border-blue-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition">
           + Create New Goal
         </button>
       </div>
