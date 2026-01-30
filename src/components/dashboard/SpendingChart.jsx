@@ -9,7 +9,7 @@ const SpendingChart = () => {
 
   return (
     <div className="mb-8">
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">This Month (Jan 1-5)</h2>
         
         {/* Progress Circle */}
@@ -18,7 +18,7 @@ const SpendingChart = () => {
             <div className="relative pt-1">
               <div className="flex mb-2 items-center justify-between">
                 <div>
-                  <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                  <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-100">
                     {percentageSpent.toFixed(1)}% Used
                   </span>
                 </div>
@@ -28,7 +28,7 @@ const SpendingChart = () => {
                   </span>
                 </div>
               </div>
-              <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+              <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-100">
                 <div
                   style={{ width: `${Math.min(percentageSpent, 100)}%` }}
                   className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${
@@ -53,7 +53,7 @@ const SpendingChart = () => {
 
         {/* Warning if projected over budget */}
         {isOverBudget && (
-          <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-4">
+          <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-4">
             <div className="flex items-start space-x-3">
               <AlertTriangle className="text-orange-600 flex-shrink-0" size={20} />
               <div>
@@ -97,7 +97,7 @@ const SpendingChart = () => {
         </div>
 
         {/* Top spending alert */}
-        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-xl">
           <p className="text-sm text-yellow-800">
             <span className="font-semibold">Food spending is 40% above average!</span>
             <button className="text-yellow-700 hover:text-yellow-900 ml-2 underline">
