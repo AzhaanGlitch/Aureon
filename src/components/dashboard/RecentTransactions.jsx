@@ -33,7 +33,7 @@ const RecentTransactions = () => {
 
   return (
     <div className="mb-8">
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-800">Recent Transactions</h2>
           <button className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
@@ -45,7 +45,7 @@ const RecentTransactions = () => {
           {DUMMY_TRANSACTIONS.map((transaction) => (
             <div
               key={transaction.id}
-              className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition cursor-pointer"
+              className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition cursor-pointer border border-gray-100"
             >
               <div className="flex items-center space-x-3 flex-1">
                 <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-2xl">
@@ -90,7 +90,7 @@ const RecentTransactions = () => {
           ))}
         </div>
 
-        <button className="w-full mt-4 py-2 text-sm text-gray-600 hover:text-gray-800 font-medium border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+        <button className="w-full mt-4 py-2 text-sm text-gray-600 hover:text-gray-800 font-medium border border-gray-200 rounded-xl hover:bg-gray-50 transition">
           View All {DUMMY_TRANSACTIONS.length} Transactions
         </button>
       </div>
