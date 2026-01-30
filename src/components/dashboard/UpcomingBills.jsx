@@ -8,7 +8,7 @@ const UpcomingBills = () => {
 
   return (
     <div className="mb-8">
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-800">Upcoming Bills</h2>
           <button className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
@@ -16,7 +16,7 @@ const UpcomingBills = () => {
           </button>
         </div>
 
-        <div className="mb-4 p-4 bg-blue-50 rounded-lg">
+        <div className="mb-4 p-4 bg-blue-50 rounded-xl border border-blue-200">
           <p className="text-sm text-gray-600 mb-1">Total due in next 7 days</p>
           <p className="text-2xl font-bold text-gray-800">${totalDue.toFixed(2)}</p>
         </div>
@@ -25,7 +25,7 @@ const UpcomingBills = () => {
           {DUMMY_BILLS.slice(0, 4).map((bill) => (
             <div
               key={bill.id}
-              className="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+              className="flex items-center justify-between p-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition"
             >
               <div className="flex items-center space-x-3 flex-1">
                 <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
