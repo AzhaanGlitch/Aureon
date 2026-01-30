@@ -36,7 +36,7 @@ const AIInsights = () => {
 
   return (
     <div className="mb-8">
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-800">AI Daily Insights</h2>
           <span className="text-sm text-gray-500">Good morning, Emma!</span>
@@ -46,7 +46,7 @@ const AIInsights = () => {
           {AI_INSIGHTS.map((insight) => (
             <div
               key={insight.id}
-              className={`p-4 rounded-lg border ${getBackgroundColor(insight.type)}`}
+              className={`p-4 rounded-xl border ${getBackgroundColor(insight.type)}`}
             >
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 mt-0.5">
