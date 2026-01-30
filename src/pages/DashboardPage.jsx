@@ -16,54 +16,64 @@ const DashboardPage = () => {
   const [showAddTransaction, setShowAddTransaction] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black">
-      <Header user={DUMMY_USER} />
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24">
-        {/* Welcome Section */}
-        <div className="mb-8 animate-fade-in">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent mb-2">
-            Welcome back, {DUMMY_USER.name.split(' ')[0]}!
-          </h1>
-          <p className="text-green-200/60 mt-1">Last login: {DUMMY_USER.lastLogin}</p>
-        </div>
-
-        {/* Financial Snapshot */}
-        <FinancialSnapshot />
-
-        {/* AI Insights */}
-        <AIInsights />
-
-        {/* This Month Overview */}
-        <SpendingChart />
-
-        {/* Recent Transactions */}
-        <RecentTransactions />
-
-        {/* Upcoming Bills */}
-        <UpcomingBills />
-
-        {/* Active Goals */}
-        <ActiveGoals />
-      </main>
-
-      {/* Floating Add Button with glow effect */}
-      <button
-        onClick={() => setShowAddTransaction(true)}
-        className="fixed bottom-24 right-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 z-40 border border-green-400/20"
+    <div className="min-h-screen relative">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 z-0"
         style={{
-          boxShadow: '0 0 40px rgba(34, 197, 94, 0.4), 0 0 80px rgba(16, 185, 129, 0.2)'
+          backgroundImage: 'url("/common-bg.jpeg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
         }}
-      >
-        <Plus size={28} />
-      </button>
+      ></div>
 
-      <BottomNav />
+      <div className="relative z-10">
+        <Header user={DUMMY_USER} />
+        
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24">
+          {/* Welcome Section */}
+          <div className="mb-8 animate-fade-in">
+            <h1 className="text-4xl font-bold text-white mb-2">
+              Welcome back, {DUMMY_USER.name.split(' ')[0]}!
+            </h1>
+            <p className="text-gray-200 mt-1">Last login: {DUMMY_USER.lastLogin}</p>
+          </div>
 
-      {/* Add Transaction Modal */}
-      {showAddTransaction && (
-        <AddTransactionModal onClose={() => setShowAddTransaction(false)} />
-      )}
+          {/* Financial Snapshot */}
+          <FinancialSnapshot />
+
+          {/* AI Insights */}
+          <AIInsights />
+
+          {/* This Month Overview */}
+          <SpendingChart />
+
+          {/* Recent Transactions */}
+          <RecentTransactions />
+
+          {/* Upcoming Bills */}
+          <UpcomingBills />
+
+          {/* Active Goals */}
+          <ActiveGoals />
+        </main>
+
+        {/* Floating Add Button */}
+        <button
+          onClick={() => setShowAddTransaction(true)}
+          className="fixed bottom-24 right-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 z-40"
+        >
+          <Plus size={28} />
+        </button>
+
+        <BottomNav />
+
+        {/* Add Transaction Modal */}
+        {showAddTransaction && (
+          <AddTransactionModal onClose={() => setShowAddTransaction(false)} />
+        )}
+      </div>
 
       <style>{`
         @keyframes fade-in {
