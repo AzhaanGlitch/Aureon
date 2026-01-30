@@ -43,11 +43,11 @@ const FinancialSnapshot = () => {
 
   return (
     <div className="mb-8">
-      <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-6 border border-gray-200">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Financial Snapshot</h2>
         
         {/* Net Worth Card */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6 text-white mb-6">
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white mb-6 shadow-lg">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm opacity-90">Net Worth</span>
             <TrendingUp size={20} />
@@ -66,7 +66,7 @@ const FinancialSnapshot = () => {
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="bg-gray-50 rounded-lg p-4">
+              <div key={index} className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div className={`w-10 h-10 rounded-lg ${getColorClasses(stat.color)} flex items-center justify-center mb-3`}>
                   <Icon size={20} />
                 </div>
