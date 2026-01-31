@@ -24,6 +24,17 @@ const LandingPage = () => {
           }
         }
 
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -93,6 +104,11 @@ const LandingPage = () => {
           animation: fadeInDown 1s ease-out forwards;
         }
 
+        .animate-fade-in-left {
+          animation: fadeInLeft 1s ease-out forwards;
+          opacity: 0;
+        }
+
         .animate-fade-in-up {
           animation: fadeInUp 1s ease-out forwards;
           opacity: 0;
@@ -133,6 +149,14 @@ const LandingPage = () => {
         .delay-400 {
           animation-delay: 0.4s;
         }
+
+        .delay-600 {
+          animation-delay: 0.6s;
+        }
+
+        .delay-800 {
+          animation-delay: 0.8s;
+        }
       `}</style>
 
       <div className="h-screen w-screen overflow-hidden relative flex flex-col">
@@ -147,49 +171,75 @@ const LandingPage = () => {
           }}
         ></div>
 
-        {/* Navbar with Glass Effect */}
-        <nav className="relative z-10 w-full px-8 py-6 animate-fade-in-down">
-          <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 bg-black/30 backdrop-blur-md rounded-xl border border-white/10">
-            <div className="text-white text-xl font-bold">
+        {/* Top Right Corner Image */}
+        <div className="absolute bottom-1 left-240 z-20 animate-fade-in-down">
+          <img 
+            src="/landing-page-top-element.png" 
+            alt="Decorative"
+            className="w-324 h-324 object-contain"
+          />
+        </div>
+
+        {/* Left-aligned Navbar with Glass Effect */}
+        <nav className="absolute top-8 left-8 z-10 animate-fade-in-down">
+          <div className="flex items-center justify-between px-8 py-4 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl">
+            <div className="text-white text-xl font-bold mr-12">
               AUREON
             </div>
-            <div className="flex items-center space-x-6">
-              <button
-                onClick={() => navigate('/login')}
-                className="text-white hover:text-gray-200 font-medium transition-all duration-300 hover:scale-105"
-              >
-                Sign In
-              </button>
-            </div>
+            <button
+              onClick={() => navigate('/login')}
+              className="text-white hover:text-gray-200 font-medium transition-all duration-300 hover:scale-105"
+            >
+              Sign In
+            </button>
           </div>
         </nav>
 
-        {/* Main Content */}
-        <div className="flex-1 relative z-10 flex items-center justify-center px-4">
-          <div className="relative flex flex-col items-center">
-            {/* AUREON Text */}
-            <h1 
-              className="text-[12rem] md:text-[14rem] lg:text-[16rem] tracking-wider leading-none select-none uppercase animate-scale-in delay-200 mb-20"
-              style={{
-                color: '#ffffff',
-                textShadow: '0 0 40px rgb(0, 0, 0), 0 0 80px rgba(255, 255, 255, 0.15)',
-                fontFamily: '"Bebas Neue", sans-serif',
-                fontWeight: '400',
-                letterSpacing: '0.05em',
-                fontStyle: 'normal'
-              }}
-            >
-              AUREON
-            </h1>
+        {/* Main Content - Left aligned */}
+        <div className="flex-1 relative z-10 flex items-center pl-16 md:pl-24 lg:pl-32">
+          <div className="relative flex items-center gap-16">
+            {/* Left Column - AUREON Text and Tagline */}
+            <div className="flex flex-col items-start">
+              {/* AUREON Text */}
+              <h1 
+                className="text-[10rem] md:text-[12rem] lg:text-[14rem] tracking-wider leading-none select-none uppercase animate-fade-in-left delay-200"
+                style={{
+                  color: '#ffffff',
+                  textShadow: '0 0 40px rgb(0, 0, 0), 0 0 80px rgba(255, 255, 255, 0.15)',
+                  fontFamily: '"Bebas Neue", sans-serif',
+                  fontWeight: '400',
+                  letterSpacing: '0.05em',
+                  fontStyle: 'normal'
+                }}
+              >
+                AUREON
+              </h1>
 
-            {/* Get Started Button */}
-            <button
-              onClick={() => navigate('/onboarding/signup')}
-              className="mt-16 px-16 py-5 bg-black/10 backdrop-blur-sm text-white rounded-full font-bold text-xl hover:bg-black/20 transition-all shadow-2xl hover:scale-110 duration-300 relative z-30 border border-white/20 animate-float-button delay-400 overflow-hidden group"
-            >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 button-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+              {/* Financial Highlight Tagline */}
+              <div className="mt-8 animate-fade-in-up delay-600">
+                <p className="text-white/90 text-lg md:text-xl lg:text-2xl font-light tracking-wide max-w-xl">
+                  Track and manage your financial data with 
+                  <span className="font-semibold text-white"> AI-powered </span>
+                  intelligence
+                </p>
+              </div>
+            </div>
+
+            {/* Vertical Get Started Button - Rotated -90 degrees */}
+            <div className="animate-float-button delay-800 ml-8">
+              <button
+                onClick={() => navigate('/onboarding/signup')}
+                className="px-12 py-5 bg-black/10 backdrop-blur-sm text-white rounded-full font-bold text-xl hover:bg-black/20 transition-all shadow-2xl hover:scale-110 duration-300 relative border border-white/20 overflow-hidden group"
+                style={{
+                  transform: 'rotate(-90deg)',
+                  transformOrigin: 'center center',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                <span className="relative z-10">Get Started</span>
+                <div className="absolute inset-0 button-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
