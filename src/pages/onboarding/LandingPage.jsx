@@ -172,11 +172,22 @@ const LandingPage = () => {
         ></div>
 
         {/* Top Right Corner Image */}
-        <div className="absolute top-0 right-0 z-20 animate-fade-in-down">
+        <div 
+          className="absolute z-20 animate-fade-in-down"
+          style={{
+            top: '-35%',
+            right: '-20%',
+            width: '900px',
+            height: '900px'
+          }}
+        >
           <img 
             src="/landing-page-top-element.png" 
             alt="Decorative"
-            className="w-64 h-64 md:w-80 md:h-80 lg:w-104 lg:h-104 object-contain"
+            className="w-full h-full object-contain"
+            style={{
+              transform: 'rotate(-180deg)'
+          }}
           />
         </div>
 
@@ -202,14 +213,15 @@ const LandingPage = () => {
             <div className="flex flex-col items-start">
               {/* AUREON Text */}
               <h1 
-                className="text-[10rem] md:text-[12rem] lg:text-[14rem] mb-40 tracking-wider leading-none select-none uppercase animate-fade-in-left delay-200"
+                className="text-[10rem] md:text-[12rem] lg:text-[14rem] tracking-wider leading-none select-none uppercase animate-fade-in-left delay-200"
                 style={{
                   color: '#ffffff',
                   textShadow: '0 0 40px rgb(0, 0, 0), 0 0 80px rgba(255, 255, 255, 0.15)',
                   fontFamily: '"Bebas Neue", sans-serif',
                   fontWeight: '400',
                   letterSpacing: '0.05em',
-                  fontStyle: 'normal'
+                  fontStyle: 'normal',
+                  marginBottom: '-1.5rem'
                 }}
               >
                 AUREON
@@ -217,7 +229,7 @@ const LandingPage = () => {
 
               {/* Financial Highlight Tagline */}
               <div className="animate-fade-in-up delay-600">
-                <p className="text-white/90 text-lg md:text-xl lg:text-2xl font-light tracking-wide max-w-xl">
+                <p className="text-white/90 text-lg md:text-xl lg:text-2xl mb-50 font-light tracking-wide max-w-xl">
                   Track and manage your financial data with 
                   <span className="font-semibold text-white"> AI-powered </span>
                   intelligence
@@ -226,14 +238,15 @@ const LandingPage = () => {
             </div>
 
             {/* Vertical Get Started Button */}
-            <div className="animate-float-button delay-800">
+            <div className="animate-float-button delay-800 ml-16">
               <button
                 onClick={() => navigate('/onboarding/signup')}
-                className="px-8 py-3 mb-57 bg-black/10 backdrop-blur-sm text-white rounded-full font-bold text-xl hover:bg-black/20 transition-all shadow-2xl hover:scale-110 duration-300 relative border border-white/20 overflow-hidden group"
+                className="px-8 py-3 mb-60 bg-black/10 backdrop-blur-sm text-white rounded-full font-bold text-xl hover:bg-black/20 transition-all shadow-2xl hover:scale-110 duration-300 relative border border-white/20 overflow-hidden group"
                 style={{
                   transform: 'rotate(-90deg)',
                   transformOrigin: 'center center',
-                  whiteSpace: 'nowrap'
+                  whiteSpace: 'nowrap',
+                  marginLeft: '-6rem'
                 }}
               >
                 <span className="relative z-10">Get Started</span>
