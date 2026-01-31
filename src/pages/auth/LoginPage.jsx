@@ -32,7 +32,7 @@ const LoginPage = ({ setIsAuthenticated }) => {
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url("/common-bg.jpeg")',
+          backgroundImage: 'url("/common-bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
