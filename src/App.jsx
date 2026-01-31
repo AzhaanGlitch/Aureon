@@ -34,7 +34,17 @@ function App() {
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/two-factor" element={<TwoFactorAuth setIsAuthenticated={setIsAuthenticated} />} />
+        
+        {/* FIXED: Passed setIsOnboarded here */}
+        <Route 
+          path="/two-factor" 
+          element={
+            <TwoFactorAuth 
+              setIsAuthenticated={setIsAuthenticated} 
+              setIsOnboarded={setIsOnboarded} 
+            />
+          } 
+        />
         
         {/* Onboarding Routes */}
         <Route path="/onboarding" element={<LandingPage />} />
