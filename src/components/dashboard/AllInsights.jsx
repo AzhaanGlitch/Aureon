@@ -39,7 +39,7 @@ const AIInsights = () => {
       <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-white">AI Daily Insights</h2>
-          <span className="text-sm text-gray-400">Good morning, Emma!</span>
+          <span className="text-sm text-gray-400">Good morning, Azhaan!</span>
         </div>
 
         <div className="space-y-4">

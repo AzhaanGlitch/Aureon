@@ -9,7 +9,7 @@ const ChatPage = () => {
     {
       id: 1,
       sender: 'bot',
-      text: "Hi Emma! 👋 I'm your AI financial assistant. Ask me anything about your finances!",
+      text: "Hi Azhaan! I'm your AI financial assistant. Ask me anything about your finances!",
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
