@@ -29,15 +29,20 @@ const Header = ({ user }) => {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-6 pb-4">
       <nav className="max-w-5xl mx-auto bg-black/40 backdrop-blur-xl rounded-full shadow-2xl border border-white/10 px-8 py-2">
         <div className="flex justify-between items-center">
-          {/* Logo - Left */}
+          
+          {/* Logo */}
           <div 
-            className="text-white text-2xl font-bold cursor-pointer hover:text-emerald-400 transition-colors duration-300"
-            onClick={() => navigate('/dashboard')}
+            className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-300"
+            onClick={() => navigate('/')}
           >
-            AUREON
+            <img 
+              src="/Aureon_logo.png" 
+              alt="Aureon Logo" 
+              className="h-10 w-10 rounded-full object-cover"
+            />
           </div>
 
-          {/* Navigation Icons - Center */}
+          {/* Navigation Icons */}
           <div className="flex items-center space-x-2">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -49,7 +54,7 @@ const Header = ({ user }) => {
                     onClick={() => navigate(item.path)}
                     className={`p-3 rounded-full transition-all duration-300 ${
                       active 
-                        ? 'bg-emerald-500/20 text-emerald-400 shadow-lg shadow-emerald-500/30' 
+                        ? 'bg-emerald-500/20 text-emerald-400' 
                         : 'text-white/70 hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -66,7 +71,7 @@ const Header = ({ user }) => {
             })}
           </div>
 
-          {/* User Menu - Right */}
+          {/* User Menu - Right (Original Feature) */}
           <div className="flex items-center space-x-3">
             {/* Notifications */}
             <div className="relative">
@@ -150,7 +155,7 @@ const Header = ({ user }) => {
         </div>
       </nav>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slideDown {
           from {
             opacity: 0;
