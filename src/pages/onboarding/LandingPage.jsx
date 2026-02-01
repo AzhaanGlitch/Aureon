@@ -194,9 +194,15 @@ const LandingPage = () => {
         {/* Navbar */}
         <nav className="absolute top-12 left-18 z-30 animate-fade-in-down w-1/2">
           <div className="flex items-center justify-between px-8 py-4 bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl ml-8" style={{ borderRadius: '9999px' }}>
-            <div className="text-white text-xl font-bold">
-              AUREON
+            
+            <div className="flex items-center">
+              <img 
+                src="/Aureon_logo.png" 
+                alt="Aureon Logo" 
+                className="h-10 w-10 rounded-full object-cover"
+              />
             </div>
+
             <button
               onClick={() => navigate('/login')}
               className="text-white hover:text-gray-200 font-medium transition-all duration-300 hover:scale-105"
