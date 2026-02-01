@@ -192,7 +192,7 @@ const LandingPage = () => {
         </div>
 
         {/* Navbar */}
-        <nav className="absolute top-12 left-18 z-10 animate-fade-in-down w-1/2">
+        <nav className="absolute top-12 left-18 z-30 animate-fade-in-down w-1/2">
           <div className="flex items-center justify-between px-8 py-4 bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl ml-8" style={{ borderRadius: '9999px' }}>
             <div className="text-white text-xl font-bold">
               AUREON
