@@ -51,7 +51,7 @@ const FinancialSnapshot = () => {
         <h2 className="text-lg font-semibold text-white mb-4">Financial Snapshot</h2>
         
         {/* Net Worth Card */}
-        <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-6 text-white mb-6 shadow-2xl border border-emerald-400/20 hover:shadow-emerald-500/30 transition-all duration-300">
+        <div className="bg-gradient-to-r from-emerald-900 to-teal-950 rounded-2xl p-6 text-white mb-6 shadow-2xl border border-emerald-400/20 hover:shadow-emerald-500/30 transition-all duration-300">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm opacity-90">Net Worth</span>
             <TrendingUp size={20} />
