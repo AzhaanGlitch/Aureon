@@ -2,8 +2,8 @@
 
 export const DUMMY_USER = {
   id: 1,
-  name: 'Emma Johnson',
-  email: 'emma@email.com',
+  name: 'Azhaan Ali Siddiqui',
+  email: 'aureondev@email.com',
   netWorth: 10960,
   cashAvailable: 3460,
   invested: 8500,
