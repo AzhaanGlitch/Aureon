@@ -33,10 +33,10 @@ const RecentTransactions = () => {
 
   return (
     <div className="mb-8">
-      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
+      <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-800">Recent Transactions</h2>
-          <button className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
+          <h2 className="text-lg font-semibold text-white">Recent Transactions</h2>
+          <button className="text-sm text-emerald-400 hover:text-emerald-300 font-medium flex items-center transition-colors duration-300">
             View All <ChevronRight size={16} className="ml-1" />
           </button>
         </div>
@@ -45,15 +45,15 @@ const RecentTransactions = () => {
           {DUMMY_TRANSACTIONS.map((transaction) => (
             <div
               key={transaction.id}
-              className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition cursor-pointer border border-gray-100"
+              className="flex items-center justify-between p-4 hover:bg-white/5 rounded-xl transition-all duration-300 cursor-pointer border border-white/10 hover:border-emerald-500/30 backdrop-blur-sm"
             >
               <div className="flex items-center space-x-3 flex-1">
-                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-2xl">
+                <div className="w-12 h-12 bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl border border-white/10">
                   {getCategoryIcon(transaction.categoryKey)}
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-800">{transaction.merchant}</p>
-                  <div className="flex items-center space-x-2 text-sm text-gray-500">
+                  <p className="font-medium text-white">{transaction.merchant}</p>
+                  <div className="flex items-center space-x-2 text-sm text-gray-400">
                     <span>{formatDate(transaction.date)}</span>
                     {transaction.time && (
                       <>
@@ -65,7 +65,7 @@ const RecentTransactions = () => {
                     <span>{transaction.category}</span>
                   </div>
                   {transaction.note && (
-                    <p className="text-sm text-gray-600 mt-1">{transaction.note}</p>
+                    <p className="text-sm text-gray-500 mt-1">{transaction.note}</p>
                   )}
                 </div>
               </div>
@@ -73,24 +73,24 @@ const RecentTransactions = () => {
               <div className="flex items-center space-x-2">
                 <div className="text-right">
                   <p className={`font-semibold ${
-                    transaction.amount > 0 ? 'text-green-600' : 'text-gray-800'
+                    transaction.amount > 0 ? 'text-emerald-400' : 'text-white'
                   }`}>
                     {transaction.amount > 0 ? '+' : ''}{transaction.amount < 0 ? '-' : ''}$
                     {Math.abs(transaction.amount).toFixed(2)}
                   </p>
-                  <p className="text-xs text-gray-500">{transaction.paymentMethod}</p>
+                  <p className="text-xs text-gray-400">{transaction.paymentMethod}</p>
                 </div>
                 {transaction.amount > 0 ? (
-                  <ArrowDownRight size={20} className="text-green-600" />
+                  <ArrowDownRight size={20} className="text-emerald-400" />
                 ) : (
-                  <ArrowUpRight size={20} className="text-gray-400" />
+                  <ArrowUpRight size={20} className="text-gray-500" />
                 )}
               </div>
             </div>
           ))}
         </div>
 
-        <button className="w-full mt-4 py-2 text-sm text-gray-600 hover:text-gray-800 font-medium border border-gray-200 rounded-xl hover:bg-gray-50 transition">
+        <button className="w-full mt-4 py-2 text-sm text-gray-400 hover:text-white font-medium border border-white/10 rounded-xl hover:bg-white/5 hover:border-emerald-500/30 transition-all duration-300 backdrop-blur-sm">
           View All {DUMMY_TRANSACTIONS.length} Transactions
         </button>
       </div>
