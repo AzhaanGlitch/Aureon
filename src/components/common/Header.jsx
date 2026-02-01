@@ -1,10 +1,21 @@
 // src/components/common/Header.jsx
 import React, { useState } from 'react';
-import { Menu, X, Bell, User, Settings, LogOut } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Home, DollarSign, Target, Bell, MessageSquare, User, Settings, LogOut } from 'lucide-react';
 
 const Header = ({ user }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+
+  const navItems = [
+    { id: 'home', label: 'Home', icon: Home, path: '/dashboard' },
+    { id: 'budget', label: 'Budget', icon: DollarSign, path: '/budget' },
+    { id: 'goals', label: 'Goals', icon: Target, path: '/goals' },
+    { id: 'bills', label: 'Bills', icon: Bell, path: '/bills' },
+    { id: 'chat', label: 'Chat', icon: MessageSquare, path: '/chat' }
+  ];
 
   const notifications = [
     { id: 1, text: 'Netflix subscription renews tomorrow', time: '1h ago', unread: true },
@@ -12,52 +23,81 @@ const Header = ({ user }) => {
     { id: 3, text: 'Monthly report is ready', time: '1d ago', unread: false }
   ];
 
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">F</span>
-              </div>
-              <span className="text-xl font-bold text-gray-800">FinanceApp</span>
-            </div>
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-6 pb-4">
+      <nav className="max-w-5xl mx-auto bg-black/40 backdrop-blur-xl rounded-full shadow-2xl border border-white/10 px-8 py-2">
+        <div className="flex justify-between items-center">
+          {/* Logo - Left */}
+          <div 
+            className="text-white text-2xl font-bold cursor-pointer hover:text-emerald-400 transition-colors duration-300"
+            onClick={() => navigate('/dashboard')}
+          >
+            AUREON
           </div>
 
-          {/* Right Section */}
-          <div className="flex items-center space-x-4">
+          {/* Navigation Icons - Center */}
+          <div className="flex items-center space-x-2">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const active = isActive(item.path);
+              
+              return (
+                <div key={item.id} className="relative group">
+                  <button
+                    onClick={() => navigate(item.path)}
+                    className={`p-3 rounded-full transition-all duration-300 ${
+                      active 
+                        ? 'bg-emerald-500/20 text-emerald-400 shadow-lg shadow-emerald-500/30' 
+                        : 'text-white/70 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    <Icon size={22} className={active ? 'stroke-[2.5]' : ''} />
+                  </button>
+                  
+                  {/* Tooltip on hover */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-black/90 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-white/10">
+                    {item.label}
+                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 rotate-45 border-l border-t border-white/10"></div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* User Menu - Right */}
+          <div className="flex items-center space-x-3">
             {/* Notifications */}
             <div className="relative">
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
-                className="p-2 rounded-lg hover:bg-gray-100 transition relative"
+                className="p-3 rounded-full hover:bg-white/10 transition-all duration-300 relative text-white/70 hover:text-white"
               >
-                <Bell size={20} className="text-gray-600" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                <Bell size={20} />
+                <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
               </button>
 
               {showNotifications && (
-                <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                  <div className="p-4 border-b border-gray-200">
-                    <h3 className="font-semibold text-gray-800">Notifications</h3>
+                <div className="absolute right-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 overflow-hidden animate-[slideDown_0.3s_ease-out]">
+                  <div className="p-4 border-b border-white/10">
+                    <h3 className="font-semibold text-white">Notifications</h3>
                   </div>
                   <div className="max-h-96 overflow-y-auto">
                     {notifications.map(notif => (
                       <div
                         key={notif.id}
-                        className={`p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer ${
-                          notif.unread ? 'bg-blue-50' : ''
+                        className={`p-4 border-b border-white/5 hover:bg-white/5 cursor-pointer transition-colors duration-300 ${
+                          notif.unread ? 'bg-emerald-500/5' : ''
                         }`}
                       >
-                        <p className="text-sm text-gray-800">{notif.text}</p>
-                        <p className="text-xs text-gray-500 mt-1">{notif.time}</p>
+                        <p className="text-sm text-white">{notif.text}</p>
+                        <p className="text-xs text-gray-400 mt-1">{notif.time}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="p-3 text-center border-t border-gray-200">
-                    <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                  <div className="p-3 text-center border-t border-white/10">
+                    <button className="text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors duration-300">
                       View All
                     </button>
                   </div>
@@ -65,40 +105,40 @@ const Header = ({ user }) => {
               )}
             </div>
 
-            {/* User Menu */}
+            {/* User Profile */}
             <div className="relative">
               <button
                 onClick={() => setShowMenu(!showMenu)}
-                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition"
+                className="flex items-center space-x-2 p-2 pr-4 rounded-full hover:bg-white/10 transition-all duration-300"
               >
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <div className="w-9 h-9 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
                   <span className="text-white text-sm font-medium">
                     {user?.name?.charAt(0) || 'E'}
                   </span>
                 </div>
-                <span className="text-sm font-medium text-gray-700 hidden md:block">
-                  {user?.name || 'Emma Johnson'}
+                <span className="text-sm font-medium text-white hidden md:block">
+                  {user?.name?.split(' ')[0] || 'Emma'}
                 </span>
               </button>
 
               {showMenu && (
-                <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                  <div className="p-4 border-b border-gray-200">
-                    <p className="font-medium text-gray-800">{user?.name || 'Emma Johnson'}</p>
-                    <p className="text-sm text-gray-500">{user?.email || 'emma@email.com'}</p>
+                <div className="absolute right-0 mt-2 w-56 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 overflow-hidden animate-[slideDown_0.3s_ease-out]">
+                  <div className="p-4 border-b border-white/10">
+                    <p className="font-medium text-white">{user?.name || 'Emma Johnson'}</p>
+                    <p className="text-sm text-gray-400">{user?.email || 'emma@email.com'}</p>
                   </div>
                   <div className="py-2">
-                    <button className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-2">
+                    <button className="w-full px-4 py-2 text-left text-sm text-white hover:bg-white/10 flex items-center space-x-2 transition-colors duration-300">
                       <User size={16} />
                       <span>Profile</span>
                     </button>
-                    <button className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-2">
+                    <button className="w-full px-4 py-2 text-left text-sm text-white hover:bg-white/10 flex items-center space-x-2 transition-colors duration-300">
                       <Settings size={16} />
                       <span>Settings</span>
                     </button>
                   </div>
-                  <div className="border-t border-gray-200">
-                    <button className="w-full px-4 py-3 text-left text-sm text-red-600 hover:bg-red-50 flex items-center space-x-2">
+                  <div className="border-t border-white/10">
+                    <button className="w-full px-4 py-3 text-left text-sm text-red-400 hover:bg-red-500/10 flex items-center space-x-2 transition-colors duration-300">
                       <LogOut size={16} />
                       <span>Logout</span>
                     </button>
@@ -108,7 +148,20 @@ const Header = ({ user }) => {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
+
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </header>
   );
 };
