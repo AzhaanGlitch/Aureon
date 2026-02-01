@@ -7,81 +7,81 @@ const AIInsights = () => {
   const getIcon = (type) => {
     switch (type) {
       case 'success':
-        return <CheckCircle className="text-green-600" size={20} />;
+        return <CheckCircle className="text-emerald-400" size={20} />;
       case 'warning':
-        return <AlertCircle className="text-orange-600" size={20} />;
+        return <AlertCircle className="text-orange-400" size={20} />;
       case 'suggestion':
-        return <Lightbulb className="text-blue-600" size={20} />;
+        return <Lightbulb className="text-blue-400" size={20} />;
       case 'pattern':
-        return <TrendingUp className="text-purple-600" size={20} />;
+        return <TrendingUp className="text-purple-400" size={20} />;
       default:
-        return <Lightbulb className="text-gray-600" size={20} />;
+        return <Lightbulb className="text-gray-400" size={20} />;
     }
   };
 
   const getBackgroundColor = (type) => {
     switch (type) {
       case 'success':
-        return 'bg-green-50 border-green-200';
+        return 'bg-emerald-500/10 border-emerald-500/30';
       case 'warning':
-        return 'bg-orange-50 border-orange-200';
+        return 'bg-orange-500/10 border-orange-500/30';
       case 'suggestion':
-        return 'bg-blue-50 border-blue-200';
+        return 'bg-blue-500/10 border-blue-500/30';
       case 'pattern':
-        return 'bg-purple-50 border-purple-200';
+        return 'bg-purple-500/10 border-purple-500/30';
       default:
-        return 'bg-gray-50 border-gray-200';
+        return 'bg-white/5 border-white/10';
     }
   };
 
   return (
     <div className="mb-8">
-      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
+      <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-800">AI Daily Insights</h2>
-          <span className="text-sm text-gray-500">Good morning, Emma!</span>
+          <h2 className="text-lg font-semibold text-white">AI Daily Insights</h2>
+          <span className="text-sm text-gray-400">Good morning, Emma!</span>
         </div>
 
         <div className="space-y-4">
           {AI_INSIGHTS.map((insight) => (
             <div
               key={insight.id}
-              className={`p-4 rounded-xl border ${getBackgroundColor(insight.type)}`}
+              className={`p-4 rounded-xl border backdrop-blur-sm hover:bg-white/5 transition-all duration-300 ${getBackgroundColor(insight.type)}`}
             >
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 mt-0.5">
                   {getIcon(insight.type)}
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-800 mb-1">{insight.title}</h3>
-                  <p className="text-sm text-gray-700 mb-2">{insight.message}</p>
+                  <h3 className="font-semibold text-white mb-1">{insight.title}</h3>
+                  <p className="text-sm text-gray-300 mb-2">{insight.message}</p>
                   
                   {insight.savings && (
-                    <div className="text-sm font-medium text-green-700">
+                    <div className="text-sm font-medium text-emerald-400">
                       Savings so far: ${insight.savings}
                     </div>
                   )}
                   
                   {insight.detail && (
-                    <div className="text-sm text-gray-600 mt-1">{insight.detail}</div>
+                    <div className="text-sm text-gray-400 mt-1">{insight.detail}</div>
                   )}
                   
                   {insight.options && (
                     <div className="mt-3 space-y-2">
                       {insight.options.map((option, index) => (
-                        <div key={index} className="text-sm text-gray-700 flex items-center">
+                        <div key={index} className="text-sm text-gray-300 flex items-center">
                           <span className="mr-2">•</span>
                           <span>{option}</span>
                         </div>
                       ))}
-                      <button className="mt-2 text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                      <button className="mt-2 text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center transition-colors duration-300">
                         View Options <ChevronRight size={16} className="ml-1" />
                       </button>
                     </div>
                   )}
                   
                   {insight.suggestion && (
-                    <button className="mt-2 text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                    <button className="mt-2 text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center transition-colors duration-300">
                       {insight.suggestion} <ChevronRight size={16} className="ml-1" />
                     </button>
                   )}
