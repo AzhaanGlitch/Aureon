@@ -21,7 +21,7 @@ const DashboardPage = () => {
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url("/common-bg.png")',
+          backgroundImage: 'url("/dashboard-bg.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
