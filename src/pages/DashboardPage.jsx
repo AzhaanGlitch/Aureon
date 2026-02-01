@@ -1,7 +1,6 @@
 // src/pages/DashboardPage.jsx
 import React, { useState } from 'react';
 import Header from '../components/common/Header';
-import BottomNav from '../components/common/BottomNav';
 import FinancialSnapshot from '../components/dashboard/FinancialSnapshot';
 import AIInsights from '../components/dashboard/AllInsights';
 import SpendingChart from '../components/dashboard/SpendingChart';
@@ -31,13 +30,13 @@ const DashboardPage = () => {
       <div className="relative z-10">
         <Header user={DUMMY_USER} />
         
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
           {/* Welcome Section */}
           <div className="mb-8 animate-fade-in">
             <h1 className="text-4xl font-bold text-white mb-2">
               Welcome back, {DUMMY_USER.name.split(' ')[0]}!
             </h1>
-            <p className="text-gray-200 mt-1">Last login: {DUMMY_USER.lastLogin}</p>
+            <p className="text-gray-300 mt-1">Last login: {DUMMY_USER.lastLogin}</p>
           </div>
 
           {/* Financial Snapshot */}
@@ -62,12 +61,10 @@ const DashboardPage = () => {
         {/* Floating Add Button */}
         <button
           onClick={() => setShowAddTransaction(true)}
-          className="fixed bottom-24 right-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 z-40"
+          className="fixed bottom-8 right-8 bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 rounded-full shadow-2xl hover:shadow-emerald-500/50 hover:scale-110 transition-all duration-300 z-40 border border-emerald-400/20"
         >
           <Plus size={28} />
         </button>
-
-        <BottomNav />
 
         {/* Add Transaction Modal */}
         {showAddTransaction && (
