@@ -7,11 +7,11 @@ const ActiveGoals = () => {
   const getStatusIcon = (status) => {
     switch (status) {
       case 'ahead':
-        return <TrendingUp size={16} className="text-green-600" />;
+        return <TrendingUp size={16} className="text-emerald-400" />;
       case 'behind':
-        return <TrendingDown size={16} className="text-red-600" />;
+        return <TrendingDown size={16} className="text-red-400" />;
       default:
-        return <Minus size={16} className="text-blue-600" />;
+        return <Minus size={16} className="text-blue-400" />;
     }
   };
 
@@ -29,20 +29,20 @@ const ActiveGoals = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'ahead':
-        return 'text-green-600 bg-green-50 border-green-200';
+        return 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30';
       case 'behind':
-        return 'text-red-600 bg-red-50 border-red-200';
+        return 'text-red-400 bg-red-500/10 border-red-500/30';
       default:
-        return 'text-blue-600 bg-blue-50 border-blue-200';
+        return 'text-blue-400 bg-blue-500/10 border-blue-500/30';
     }
   };
 
   return (
     <div className="mb-8">
-      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-200">
+      <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-800">Active Goals</h2>
-          <button className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
+          <h2 className="text-lg font-semibold text-white">Active Goals</h2>
+          <button className="text-sm text-emerald-400 hover:text-emerald-300 font-medium flex items-center transition-colors duration-300">
             View All <ChevronRight size={16} className="ml-1" />
           </button>
         </div>
@@ -53,10 +53,10 @@ const ActiveGoals = () => {
             return (
               <div
                 key={goal.id}
-                className="border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-md transition cursor-pointer bg-white"
+                className="border border-white/10 rounded-xl p-4 hover:border-emerald-500/30 hover:bg-white/5 transition-all duration-300 cursor-pointer bg-white/5 backdrop-blur-sm"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-semibold text-gray-800 text-sm">{goal.name}</h3>
+                  <h3 className="font-semibold text-white text-sm">{goal.name}</h3>
                   <span className="text-2xl">
                     {goal.name.includes('House') ? '🏠' :
                      goal.name.includes('Vacation') ? '🏝️' :
@@ -66,15 +66,15 @@ const ActiveGoals = () => {
 
                 <div className="mb-3">
                   <div className="flex items-center justify-between text-sm mb-1">
-                    <span className="text-gray-600">{percentage.toFixed(0)}%</span>
-                    <span className="text-gray-600">${goal.current.toLocaleString()} / ${goal.target.toLocaleString()}</span>
+                    <span className="text-gray-400">{percentage.toFixed(0)}%</span>
+                    <span className="text-gray-400">${goal.current.toLocaleString()} / ${goal.target.toLocaleString()}</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-white/10 rounded-full h-2">
                     <div
                       className={`h-2 rounded-full ${
-                        goal.status === 'ahead' ? 'bg-green-500' :
-                        goal.status === 'behind' ? 'bg-red-500' :
-                        'bg-blue-500'
+                        goal.status === 'ahead' ? 'bg-gradient-to-r from-emerald-500 to-teal-600' :
+                        goal.status === 'behind' ? 'bg-gradient-to-r from-red-500 to-orange-400' :
+                        'bg-gradient-to-r from-blue-500 to-cyan-400'
                       }`}
                       style={{ width: `${Math.min(percentage, 100)}%` }}
                     ></div>
@@ -83,12 +83,12 @@ const ActiveGoals = () => {
 
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Target</span>
-                    <span className="font-medium text-gray-800">{goal.deadline}</span>
+                    <span className="text-gray-400">Target</span>
+                    <span className="font-medium text-white">{goal.deadline}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Monthly</span>
-                    <span className="font-medium text-gray-800">${goal.currentPace}/mo</span>
+                    <span className="text-gray-400">Monthly</span>
+                    <span className="font-medium text-white">${goal.currentPace}/mo</span>
                   </div>
                   <div className={`flex items-center justify-between px-2 py-1 rounded border ${getStatusColor(goal.status)}`}>
                     <div className="flex items-center space-x-1">
@@ -102,7 +102,7 @@ const ActiveGoals = () => {
           })}
         </div>
 
-        <button className="w-full mt-4 py-3 text-sm text-blue-600 hover:text-blue-700 font-medium border-2 border-dashed border-blue-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition">
+        <button className="w-full mt-4 py-3 text-sm text-emerald-400 hover:text-emerald-300 font-medium border-2 border-dashed border-emerald-500/30 rounded-xl hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all duration-300 backdrop-blur-sm">
           + Create New Goal
         </button>
       </div>
