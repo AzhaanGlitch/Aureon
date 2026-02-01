@@ -122,15 +122,15 @@ const Header = ({ user }) => {
                   </span>
                 </div>
                 <span className="text-sm font-medium text-white hidden md:block">
-                  {user?.name?.split(' ')[0] || 'Emma'}
+                  {user?.name?.split(' ')[0] || 'Azhaan'}
                 </span>
               </button>
 
               {showMenu && (
                 <div className="absolute right-0 mt-2 w-56 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 overflow-hidden animate-[slideDown_0.3s_ease-out]">
                   <div className="p-4 border-b border-white/10">
-                    <p className="font-medium text-white">{user?.name || 'Emma Johnson'}</p>
-                    <p className="text-sm text-gray-400">{user?.email || 'emma@email.com'}</p>
+                    <p className="font-medium text-white">{user?.name || 'Azhaan Johnson'}</p>
+                    <p className="text-sm text-gray-400">{user?.email || 'Azhaan@email.com'}</p>
                   </div>
                   <div className="py-2">
                     <button className="w-full px-4 py-2 text-left text-sm text-white hover:bg-white/10 flex items-center space-x-2 transition-colors duration-300">
