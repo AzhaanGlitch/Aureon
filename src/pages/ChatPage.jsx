@@ -75,36 +75,37 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col">
-      {/* Background Image */}
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Fixed Background Image */}
       <div 
         className="fixed inset-0 z-0"
         style={{
           backgroundImage: 'url("/dashboard-bg.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
         }}
       ></div>
 
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <div className="relative z-10 min-h-screen flex flex-col">
         <Header user={DUMMY_USER} />
         
-        <main className="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-32 pb-8">
-          <h1 className="text-4xl font-bold text-white mb-6">
+        <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6">
             AI Financial Assistant
           </h1>
 
-          {/* Chat Messages */}
-          <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl mb-4 flex flex-col border border-white/10" style={{ height: 'calc(100vh - 350px)' }}>
-            <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          {/* Chat Messages Container */}
+          <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl mb-4 flex flex-col border border-white/10" style={{ height: 'calc(100vh - 350px)', minHeight: '400px' }}>
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
               {messages.map((message) => (
                 <div
                   key={message.id}
                   className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div className={`flex items-start space-x-3 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 border-2 ${
+                    <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 border-2 ${
                       message.sender === 'bot' 
                         ? 'bg-gradient-to-br from-emerald-500/30 to-teal-600/30 border-emerald-500/50' 
                         : 'bg-gradient-to-br from-white/10 to-white/5 border-white/30'
@@ -116,7 +117,7 @@ const ChatPage = () => {
                       )}
                     </div>
                     <div>
-                      <div className={`rounded-2xl p-4 backdrop-blur-sm ${
+                      <div className={`rounded-2xl p-3 sm:p-4 backdrop-blur-sm ${
                         message.sender === 'bot' 
                           ? 'bg-white/10 text-white border border-white/10' 
                           : 'bg-gradient-to-r from-emerald-500/90 to-teal-600/90 text-white border border-emerald-400/30'
@@ -132,14 +133,14 @@ const ChatPage = () => {
 
             {/* Quick Suggestions */}
             {messages.length === 1 && (
-              <div className="p-6 border-t border-white/10">
+              <div className="p-4 sm:p-6 border-t border-white/10">
                 <p className="text-sm text-gray-300 mb-4 font-medium">Quick suggestions:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {quickSuggestions.map((suggestion, index) => (
                     <button
                       key={index}
                       onClick={() => handleSuggestionClick(suggestion)}
-                      className="text-left text-sm p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-300 text-gray-200 backdrop-blur-sm"
+                      className="text-left text-sm p-3 sm:p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-300 text-gray-200 backdrop-blur-sm"
                     >
                       {suggestion}
                     </button>
@@ -150,19 +151,19 @@ const ChatPage = () => {
           </div>
 
           {/* Input Form */}
-          <form onSubmit={handleSendMessage} className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/10">
-            <div className="flex space-x-3">
+          <form onSubmit={handleSendMessage} className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-3 sm:p-4 border border-white/10">
+            <div className="flex space-x-2 sm:space-x-3">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Ask me anything about your finances..."
-                className="flex-1 px-6 py-4 bg-white/5 border border-white/10 text-white placeholder-gray-400 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all backdrop-blur-sm hover:bg-white/10"
+                className="flex-1 px-4 sm:px-6 py-3 sm:py-4 bg-white/5 border border-white/10 text-white placeholder-gray-400 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all backdrop-blur-sm hover:bg-white/10 text-sm sm:text-base"
               />
               <button
                 type="submit"
                 disabled={!inputMessage.trim()}
-                className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed flex items-center space-x-2 border border-emerald-400/20 hover:scale-105 disabled:hover:scale-100"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed flex items-center space-x-2 border border-emerald-400/20 hover:scale-105 disabled:hover:scale-100"
               >
                 <Send size={20} />
                 <span className="hidden sm:inline font-medium">Send</span>
