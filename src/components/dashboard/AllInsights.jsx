@@ -22,15 +22,15 @@ const AIInsights = () => {
   const getBackgroundColor = (type) => {
     switch (type) {
       case 'success':
-        return 'bg-emerald-500/10 border-emerald-500/30';
+        return 'bg-black/20';
       case 'warning':
-        return 'bg-orange-500/10 border-orange-500/30';
+        return 'bg-black/20';
       case 'suggestion':
-        return 'bg-blue-500/10 border-blue-500/30';
+        return 'bg-black/20';
       case 'pattern':
-        return 'bg-purple-500/10 border-purple-500/30';
+        return 'bg-black/20';
       default:
-        return 'bg-white/5 border-white/10';
+        return 'bg-black/20';
     }
   };
 
