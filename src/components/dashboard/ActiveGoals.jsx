@@ -38,8 +38,8 @@ const ActiveGoals = () => {
   };
 
   return (
-    <div className="mb-8">
-      <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
+    <div className="h-full">
+      <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-4 sm:p-6 border border-white/10 hover:border-emerald-500/30 transition-all duration-300 h-full flex flex-col">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-white">Active Goals</h2>
           <button className="text-sm text-emerald-400 hover:text-emerald-300 font-medium flex items-center transition-colors duration-300">
@@ -47,22 +47,22 @@ const ActiveGoals = () => {
           </button>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="space-y-3 overflow-y-auto flex-1">
           {DUMMY_GOALS.map((goal) => {
             const percentage = (goal.current / goal.target) * 100;
             return (
               <div
                 key={goal.id}
-                className="border border-white/10 rounded-xl p-4 hover:border-emerald-500/30 hover:bg-white/5 transition-all duration-300 cursor-pointer bg-white/5 backdrop-blur-sm"
+                className="border border-white/10 rounded-xl p-3 sm:p-4 hover:border-emerald-500/30 hover:bg-white/5 transition-all duration-300 cursor-pointer bg-white/5 backdrop-blur-sm"
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-semibold text-white text-sm">{goal.name}</h3>
                 </div>
 
                 <div className="mb-3">
-                  <div className="flex items-center justify-between text-sm mb-1">
+                  <div className="flex items-center justify-between text-xs sm:text-sm mb-1">
                     <span className="text-gray-400">{percentage.toFixed(0)}%</span>
-                    <span className="text-gray-400">${goal.current.toLocaleString()} / ${goal.target.toLocaleString()}</span>
+                    <span className="text-gray-400 truncate ml-2">${goal.current.toLocaleString()} / ${goal.target.toLocaleString()}</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-2">
                     <div
@@ -76,7 +76,7 @@ const ActiveGoals = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-xs sm:text-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400">Target</span>
                     <span className="font-medium text-white">{goal.deadline}</span>
@@ -88,7 +88,7 @@ const ActiveGoals = () => {
                   <div className={`flex items-center justify-between px-2 py-1 rounded border ${getStatusColor(goal.status)}`}>
                     <div className="flex items-center space-x-1">
                       {getStatusIcon(goal.status)}
-                      <span className="font-medium text-xs">{getStatusText(goal)}</span>
+                      <span className="font-medium text-xs truncate">{getStatusText(goal)}</span>
                     </div>
                   </div>
                 </div>
