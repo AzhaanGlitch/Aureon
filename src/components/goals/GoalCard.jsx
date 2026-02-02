@@ -33,11 +33,6 @@ const GoalCard = ({ goal, onViewDetails }) => {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-bold text-gray-800">{goal.name}</h2>
-        <span className="text-3xl">
-          {goal.name.includes('House') ? '🏠' :
-           goal.name.includes('Vacation') ? '🏝️' :
-           goal.name.includes('Wedding') ? '💍' : '🎯'}
-        </span>
       </div>
 
       {/* Progress Bar */}
