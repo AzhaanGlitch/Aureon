@@ -57,11 +57,6 @@ const ActiveGoals = () => {
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-semibold text-white text-sm">{goal.name}</h3>
-                  <span className="text-2xl">
-                    {goal.name.includes('House') ? '🏠' :
-                     goal.name.includes('Vacation') ? '🏝️' :
-                     goal.name.includes('Wedding') ? '💍' : '🎯'}
-                  </span>
                 </div>
 
                 <div className="mb-3">
