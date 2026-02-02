@@ -30,10 +30,10 @@ const DashboardPage = () => {
       <div className="relative z-10">
         <Header user={DUMMY_USER} />
         
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16">
           {/* Welcome Section */}
           <div className="mb-8 animate-fade-in">
-            <h1 className="text-4xl font-bold text-white mb-2">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
               Welcome back, {DUMMY_USER.name.split(' ')[0]}!
             </h1>
             <p className="text-gray-300 mt-1">Last login: {DUMMY_USER.lastLogin}</p>
@@ -42,20 +42,28 @@ const DashboardPage = () => {
           {/* Financial Snapshot */}
           <FinancialSnapshot />
 
-          {/* AI Insights */}
-          <AIInsights />
+          {/* Row 1: AI Insights and Recent Transactions side by side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div className="w-full">
+              <AIInsights />
+            </div>
+            <div className="w-full">
+              <RecentTransactions />
+            </div>
+          </div>
 
-          {/* This Month Overview */}
+          {/* Row 2: Upcoming Bills and Active Goals side by side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div className="w-full">
+              <UpcomingBills />
+            </div>
+            <div className="w-full">
+              <ActiveGoals />
+            </div>
+          </div>
+
+          {/* Row 3: Spending Chart (This Month Overview) */}
           <SpendingChart />
-
-          {/* Recent Transactions */}
-          <RecentTransactions />
-
-          {/* Upcoming Bills */}
-          <UpcomingBills />
-
-          {/* Active Goals */}
-          <ActiveGoals />
         </main>
 
         {/* Floating Add Button */}
