@@ -1,3 +1,4 @@
+// src/components/common/Card.jsx
 import React from 'react';
 
 const Card = ({ 
